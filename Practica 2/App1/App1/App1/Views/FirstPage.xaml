@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.FirstPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid ColumnDefinitions="*" RowDefinitions="100,670,100">
+        <Frame
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            Padding="24"
+            BackgroundColor="White"
+            CornerRadius="0">
+            <Label
+                FontAttributes="Bold"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                Text="Discovery"
+                TextColor="Black" />
+        </Frame>
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            Padding="30"
+            BackgroundColor="#D3D3D3"
+            ColumnDefinitions="*,*"
+            RowDefinitions="*,*,*">
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="White"
+                ColumnDefinitions="*"
+                RowDefinitions="90,20,20">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="{Binding CSharp.ImageSrc}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding CSharp.Title}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Text="{Binding CSharp.Subtitle}"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="White"
+                ColumnDefinitions="*"
+                RowDefinitions="90,20,20">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="{Binding CPlusPlus.ImageSrc}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding CPlusPlus.Title}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Text="{Binding CPlusPlus.Subtitle}"
+                    VerticalOptions="Center" />
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="White"
+                ColumnDefinitions="*"
+                RowDefinitions="90,20,20">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="{Binding Python.ImageSrc}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Python.Title}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Text="{Binding Python.Subtitle}"
+                    VerticalOptions="Center" />
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="White"
+                ColumnDefinitions="*"
+                RowDefinitions="90,20,20">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="{Binding Java.ImageSrc}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Java.Title}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Text="{Binding Java.Subtitle}"
+                    VerticalOptions="Center" />
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="White"
+                ColumnDefinitions="*"
+                RowDefinitions="90,20,20">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="{Binding Asm.ImageSrc}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Asm.Title}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Text="{Binding Asm.Subtitle}"
+                    VerticalOptions="Center" />
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="White"
+                ColumnDefinitions="*"
+                RowDefinitions="90,20,20">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HeightRequest="110"
+                    Source="{Binding Js.ImageSrc}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Js.Title}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Text="{Binding Js.Subtitle}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Grid>
+        <Grid
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            BackgroundColor="White"
+            ColumnDefinitions="*,*,*,*,*"
+            RowDefinitions="*,*">
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Source="home.png" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                Text="Profile 1" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="1"
+                Source="battery.png" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                Text="Profile 2" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="2"
+                Source="star.png" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                Text="Profile 3" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="3"
+                Source="analytics.png" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="3"
+                HorizontalOptions="Center"
+                Text="Profile 4" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="4"
+                Source="trend.png" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="4"
+                HorizontalOptions="Center"
+                Text="Profile 5" />
+        </Grid>
+    </Grid>
+</ContentPage>

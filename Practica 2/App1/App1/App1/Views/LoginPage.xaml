@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame
+                Padding="24"
+                BackgroundColor="#2196F3"
+                CornerRadius="0">
+                <Label
+                    FontSize="36"
+                    HorizontalTextAlignment="Center"
+                    Text="Welcome to Xamarin.Forms!"
+                    TextColor="White" />
+            </Frame>
+            <Label
+                Padding="30,10,30,10"
+                FontSize="Title"
+                Text="Start developing now! Just login and unleash the power of mobile developing!" />
+            <Image HeightRequest="200" Source="https://sumodh.com/wp-content/uploads/2018/03/xamagon.png" />
+            <Entry Placeholder="User" Text="{Binding UserEntry}" />
+            <Entry
+                IsPassword="True"
+                Placeholder="Password"
+                Text="{Binding PasswordEntry}" />
+            <Button Command="{Binding LoginCommand}" Text="Login" BackgroundColor="{Binding ButtonColor}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
