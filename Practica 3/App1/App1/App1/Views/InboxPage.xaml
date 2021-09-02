@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.InboxPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:App1.ViewModels"
+    x:Name="inboxPage"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModels:InboxViewModel />
+    </ContentPage.BindingContext>
+    <Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto">
+        <Frame
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            BackgroundColor="#c94f3f">
+            <Grid ColumnDefinitions="Auto,*,*" RowDefinitions="*">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="1"
+                    HeightRequest="45"
+                    HorizontalOptions="StartAndExpand"
+                    Source="menu.png" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="1"
+                    FontSize="Title"
+                    HorizontalOptions="Center"
+                    Text="Primary"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="1"
+                    HeightRequest="45"
+                    HorizontalOptions="EndAndExpand"
+                    Source="search.png" />
+            </Grid>
+        </Frame>
+        <StackLayout
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="1">
+            <Label
+                FontAttributes="Bold"
+                FontSize="Title"
+                HorizontalOptions="Center"
+                IsVisible="{Binding HasNoEmails}"
+                Text="Your inbox is empty!" />
+            <CollectionView
+                IsVisible="{Binding HasEmails}"
+                ItemsSource="{Binding Emails}"
+                SelectedItem="{Binding SelectedEmail}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItem
+                                    BackgroundColor="Red"
+                                    Command="{Binding Source={x:Reference inboxPage}, Path=BindingContext.DeleteEmailCommand}"
+                                    CommandParameter="{Binding}"
+                                    Text="Borrar" />
+                            </SwipeView.RightItems>
+                            <Grid
+                                BackgroundColor="#D3D3D3"
+                                ColumnDefinitions="Auto,*,*"
+                                RowDefinitions="*,*,*,Auto">
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    Grid.Column="0"
+                                    Source="{Binding ImageSource}" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding From}" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Title}" />
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Text="{Binding Description}" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Date}" />
+                                <Image
+                                    Grid.Row="1"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    HeightRequest="30"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="star.png"
+                                    VerticalOptions="Center" />
+                                <BoxView
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="3"
+                                    BackgroundColor="White"
+                                    HeightRequest="2"
+                                    VerticalOptions="End" />
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        <ImageButton
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            BackgroundColor="#c94f3f"
+            Command="{Binding AddEmailCommand}"
+            CornerRadius="40"
+            HeightRequest="80"
+            HorizontalOptions="EndAndExpand"
+            Source="edit.png"
+            WidthRequest="80" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.EmailDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="inbox.png"
+            Order="Primary"
+            Priority="0" />
+        <ToolbarItem
+            IconImageSource="delete.png"
+            Order="Primary"
+            Priority="1" />
+        <ToolbarItem
+            IconImageSource="mail.png"
+            Order="Primary"
+            Priority="2" />
+        <ToolbarItem
+            IconImageSource="dots.png"
+            Order="Primary"
+            Priority="3" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid
+            Margin="20"
+            ColumnDefinitions="*,*"
+            RowDefinitions="Auto,Auto,70,25,Auto">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Start"
+                Text="{Binding Email.Title}"
+                VerticalOptions="Center" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalOptions="End"
+                Source="star.png" />
+            <BoxView
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                BackgroundColor="Black"
+                HeightRequest="2"
+                VerticalOptions="End" />
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BackgroundColor="#D3D3D3"
+                ColumnDefinitions="Auto,*,Auto,Auto"
+                RowDefinitions="*,*">
+                <Image
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    HeightRequest="100"
+                    Source="profile.png" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="{Binding Email.From}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding Email.Date}" />
+                <Image
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    Source="reply.png" />
+                <Image
+                    Grid.RowSpan="2"
+                    Grid.Column="3"
+                    Source="dots.png" />
+            </Grid>
+            <Label
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                TextColor="White" />
+            <Label
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                FontSize="Large"
+                Text="{Binding Email.Description}" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

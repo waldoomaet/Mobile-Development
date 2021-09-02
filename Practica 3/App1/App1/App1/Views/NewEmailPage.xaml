@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.NewEmailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Order="Default"
+            Priority="0"
+            Text="Compose" />
+        <ToolbarItem
+            Command="{Binding AttachCommand}"
+            IconImageSource="attach_file.png"
+            Order="Primary"
+            Priority="1" />
+        <ToolbarItem
+            Command="{Binding SendCommand}"
+            IconImageSource="send.png"
+            Order="Primary"
+            Priority="2" />
+        <ToolbarItem
+            IconImageSource="dots.png"
+            Order="Primary"
+            Priority="3" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto, Auto, Auto, *">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                FontSize="Medium"
+                Text="From:" />
+            <Entry
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Email.From}"
+                Visual="Material" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                FontSize="Medium"
+                Text="To:" />
+            <Entry
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding Email.Title}" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                FontSize="Medium"
+                IsVisible="{Binding PhotoAttached}"
+                Text="Photo path:" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                FontSize="Medium"
+                IsVisible="{Binding PhotoAttached}"
+                Text="{Binding PhotoPath}" />
+            <Editor
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                HeightRequest="300"
+                Placeholder="Description"
+                Text="{Binding Email.Description}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
