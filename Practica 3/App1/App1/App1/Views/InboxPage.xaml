@@ -9,12 +9,11 @@
     <ContentPage.BindingContext>
         <viewModels:InboxViewModel />
     </ContentPage.BindingContext>
-    <Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto, Auto">
-        <Frame
-            Grid.Row="0"
-            Grid.Column="0"
-            Grid.ColumnSpan="1"
-            BackgroundColor="#c94f3f">
+    <Grid
+        BackgroundColor="#D3D3D3"
+        ColumnDefinitions="*"
+        RowDefinitions="Auto, Auto, Auto">
+        <Frame Grid.Row="0" BackgroundColor="#c94f3f">
             <Grid ColumnDefinitions="Auto,*,*" RowDefinitions="*">
                 <Image
                     Grid.Row="0"
@@ -66,55 +65,66 @@
                                     CommandParameter="{Binding}"
                                     Text="Borrar" />
                             </SwipeView.RightItems>
-                            <Grid
-                                BackgroundColor="#D3D3D3"
-                                ColumnDefinitions="Auto,*,*"
-                                RowDefinitions="*,*,*,Auto">
-                                <Image
-                                    Grid.Row="0"
-                                    Grid.RowSpan="3"
-                                    Grid.Column="0"
-                                    Source="{Binding ImageSource}" />
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    FontAttributes="Bold"
-                                    Text="{Binding From}" />
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                    FontAttributes="Bold"
-                                    Text="{Binding Title}" />
-                                <Label
-                                    Grid.Row="2"
-                                    Grid.Column="1"
-                                    Text="{Binding Description}" />
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="2"
-                                    HorizontalOptions="End"
-                                    Text="{Binding Date}" />
-                                <Image
-                                    Grid.Row="1"
-                                    Grid.RowSpan="2"
-                                    Grid.Column="2"
-                                    HeightRequest="30"
-                                    HorizontalOptions="EndAndExpand"
-                                    Source="star.png"
-                                    VerticalOptions="Center" />
-                                <BoxView
-                                    Grid.Row="3"
-                                    Grid.ColumnSpan="3"
-                                    BackgroundColor="White"
-                                    HeightRequest="2"
-                                    VerticalOptions="End" />
-                            </Grid>
+                            <Frame
+                                Margin="7"
+                                BackgroundColor="White"
+                                CornerRadius="4">
+                                <Grid ColumnDefinitions="Auto,*,*" RowDefinitions="Auto,Auto,Auto,Auto">
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.RowSpan="3"
+                                        Grid.Column="0"
+                                        Margin="0,0,20,0"
+                                        Source="{Binding ImageSource}" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        Text="{Binding From}"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        Text="{Binding Title}"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Text="{Binding Description}"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Padding="6"
+                                        HorizontalOptions="End"
+                                        Text="{Binding Date}" />
+                                    <Image
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        HeightRequest="30"
+                                        HorizontalOptions="EndAndExpand"
+                                        Source="star.png"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </Frame>
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </StackLayout>
-        <ImageButton
+        <Image
+            Grid.Row="2"
+            Margin="-20"
+            HeightRequest="160"
+            HorizontalOptions="EndAndExpand"
+            Source="edit2.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AddEmailCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <!--<ImageButton
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="1"
@@ -123,7 +133,7 @@
             CornerRadius="40"
             HeightRequest="80"
             HorizontalOptions="EndAndExpand"
-            Source="edit.png"
-            WidthRequest="80" />
+            Source="edit2.png"
+            WidthRequest="80" />-->
     </Grid>
 </ContentPage>

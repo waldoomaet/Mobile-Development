@@ -25,7 +25,7 @@
         <Grid
             Margin="20"
             ColumnDefinitions="*,*"
-            RowDefinitions="Auto,Auto,70,25,Auto">
+            RowDefinitions="Auto,Auto,70,25,Auto,25,Auto">
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
@@ -84,6 +84,15 @@
                 Grid.ColumnSpan="2"
                 FontSize="Large"
                 Text="{Binding Email.Description}" />
+            <Label
+                Grid.Row="5"
+                Grid.ColumnSpan="2"
+                TextColor="White" />
+            <Image
+                Grid.Row="6"
+                Grid.ColumnSpan="2"
+                Source="{Binding Email.AttachedPhotoPath}"
+                HorizontalOptions="StartAndExpand"/>
 
         </Grid>
     </ContentPage.Content>

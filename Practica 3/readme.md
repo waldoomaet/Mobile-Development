@@ -8,8 +8,16 @@ This is a simple (none-functional) mailing app (a try of rip-off of Gmail),
 
 ## Email detail page
 
-<img src="SS\email_detail.png">
+<img src="SS\mail_detail.png">
 
 ## Send new email page
 
-<img src="SS\add_email.png">
+<img src="SS\add_mail.png">
+
+<img src="SS\add_mail_full.png">
+
+<img src="SS\mail_app.png">
+
+<img src="SS\notification.png">
+
+<img src="SS\alert.png">

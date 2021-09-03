@@ -1,4 +1,5 @@
 ﻿using App1.Models;
+using Plugin.LocalNotification;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,16 +31,29 @@ namespace App1.ViewModels
             AttachCommand = new Command(TakePhotoAsync);
         }
 
-        public async void SendEmail()
+        private async void SendEmail()
         {
-            Email.ImageSource = "profile.png";
+            Email.ImageSource = "profile_black.png";
             Email.Date = DateTime.Now;
-            await App.Current.MainPage.DisplayAlert("Enviado", "Email enviado satisfactoriamente!", "OK");
             SetEmail(Email, EventArgs.Empty);
+            var notification = new NotificationRequest
+            {
+                NotificationId = 100,
+                Title = Email.Title,
+                Description = Email.Description,
+                ReturningData = "Dummy data", // Returning data when tapped on notification.
+                Schedule =
+                {
+                    NotifyTime = DateTime.Now.AddSeconds(3)
+                }
+            };
+            await NotificationCenter.Current.Show(notification);
+            await SendActualEmail();
+            await App.Current.MainPage.DisplayAlert("Enviado", "Email enviado satisfactoriamente!", "OK");
             await App.Current.MainPage.Navigation.PopAsync();
         }
 
-        public async void TakePhotoAsync()
+        private async void TakePhotoAsync()
         {
             try
             {
@@ -47,14 +61,8 @@ namespace App1.ViewModels
                 await LoadPhotoAsync(photo);
                 Console.WriteLine($"CapturePhotoAsync COMPLETED: {PhotoPath}");
             }
-            catch (FeatureNotSupportedException fnsEx)
-            {
-                // Feature is not supported on the device
-            }
-            catch (PermissionException pEx)
-            {
-                // Permissions not granted
-            }
+            catch (FeatureNotSupportedException fnsEx) { }
+            catch (PermissionException pEx) { }
             catch (Exception ex)
             {
                 Console.WriteLine($"CapturePhotoAsync THREW: {ex.Message}");
@@ -76,6 +84,25 @@ namespace App1.ViewModels
             Email.AttachedPhotoPath = newFile;
             PhotoPath = newFile;
             PhotoAttached = true;
+        }
+
+        private async Task SendActualEmail()
+        {
+            try
+            {
+                var message = new EmailMessage
+                {
+                    Subject = Email.Title,
+                    Body = Email.Description,
+                    To = new List<string>() { Email.From }
+                };
+                await Xamarin.Essentials.Email.ComposeAsync(message);
+            }
+            catch (FeatureNotSupportedException fbsEx) {}
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
