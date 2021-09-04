@@ -24,8 +24,8 @@
     <ContentPage.Content>
         <Grid
             Margin="20"
-            ColumnDefinitions="*,*"
-            RowDefinitions="Auto,Auto,70,25,Auto,25,Auto">
+            ColumnDefinitions="*,*,*,*"
+            RowDefinitions="Auto,Auto,35,35,25,Auto,25,Auto">
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
@@ -36,16 +36,54 @@
                 VerticalOptions="Center" />
             <Image
                 Grid.Row="0"
-                Grid.Column="1"
+                Grid.Column="3"
                 HorizontalOptions="End"
                 Source="star.png" />
             <BoxView
                 Grid.Row="1"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="4"
                 BackgroundColor="Black"
                 HeightRequest="2"
                 VerticalOptions="End" />
-            <Grid
+            <Image
+                Grid.Row="2"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                BackgroundColor="#D3D3D3"
+                HeightRequest="100"
+                Source="profile.png" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Margin="-10,0,-10,-10"
+                BackgroundColor="#D3D3D3"
+                FontAttributes="Bold"
+                Text="{Binding Email.From}" />
+            <Label
+                Grid.Row="3"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Margin="-10,-10,-10,0"
+                BackgroundColor="#D3D3D3"
+                Text="{Binding Email.Date}" />
+            <Image
+                Grid.Row="2"
+                Grid.RowSpan="2"
+                Grid.Column="2"
+                Margin="0,0,-50,0"
+                BackgroundColor="#D3D3D3"
+                HorizontalOptions="EndAndExpand"
+                Source="reply.png" />
+            <Image
+                Grid.Row="2"
+                Grid.RowSpan="2"
+                Grid.Column="3"
+                Margin="-10,0,0,0"
+                BackgroundColor="#D3D3D3"
+                HorizontalOptions="EndAndExpand"
+                Source="dots.png" />
+            <!--<Grid
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
                 BackgroundColor="#D3D3D3"
@@ -73,7 +111,8 @@
                     Grid.RowSpan="2"
                     Grid.Column="3"
                     Source="dots.png" />
-            </Grid>
+            </Grid>-->
+            <!--This was used as a breakline (<br>)-->
             <Label
                 Grid.Row="3"
                 Grid.ColumnSpan="2"
@@ -83,6 +122,7 @@
                 Grid.ColumnSpan="2"
                 FontSize="Large"
                 Text="{Binding Email.Description}" />
+            <!--This was used as a breakline (<br>)-->
             <Label
                 Grid.Row="5"
                 Grid.ColumnSpan="2"
