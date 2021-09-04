@@ -47,7 +47,6 @@
                 VerticalOptions="End" />
             <Grid
                 Grid.Row="2"
-                Grid.Column="0"
                 Grid.ColumnSpan="2"
                 BackgroundColor="#D3D3D3"
                 ColumnDefinitions="Auto,*,Auto,Auto"
@@ -91,8 +90,8 @@
             <Image
                 Grid.Row="6"
                 Grid.ColumnSpan="2"
-                Source="{Binding Email.AttachedPhotoPath}"
-                HorizontalOptions="StartAndExpand"/>
+                HorizontalOptions="StartAndExpand"
+                Source="{Binding Email.AttachedPhotoPath}" />
 
         </Grid>
     </ContentPage.Content>

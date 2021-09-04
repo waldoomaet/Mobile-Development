@@ -1,7 +1,9 @@
 ﻿using App1.Models;
+using Newtonsoft.Json;
 using Plugin.LocalNotification;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
@@ -12,30 +14,31 @@ using Xamarin.Forms;
 
 namespace App1.ViewModels
 {
-    class NewEmailViewModel: INotifyPropertyChanged
+    class NewEmailViewModel : INotifyPropertyChanged
     {
         public Models.Email Email { get; set; } = new Models.Email();
-        public delegate void SetEmailHandler (object source, EventArgs args);
-        public event SetEmailHandler SetEmail;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string PhotoPath { get; set; }
+        private ObservableCollection<Models.Email> _emails {get;set;}
 
         public bool PhotoAttached { get; set; } = false;
         public ICommand SendCommand { get; set; }
         public ICommand AttachCommand { get; set; }
 
-        public NewEmailViewModel() 
+        public NewEmailViewModel(ObservableCollection<Models.Email> emails) 
         {
             SendCommand = new Command(SendEmail);
             AttachCommand = new Command(TakePhotoAsync);
+            _emails = emails;
         }
 
         private async void SendEmail()
         {
             Email.ImageSource = "profile_black.png";
             Email.Date = DateTime.Now;
-            SetEmail(Email, EventArgs.Empty);
+            _emails.Add(Email);
+            Preferences.Set("json_data", JsonConvert.SerializeObject(_emails));
             var notification = new NotificationRequest
             {
                 NotificationId = 100,

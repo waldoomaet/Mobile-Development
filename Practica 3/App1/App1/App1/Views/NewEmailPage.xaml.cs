@@ -1,6 +1,8 @@
-﻿using App1.ViewModels;
+﻿using App1.Models;
+using App1.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +15,10 @@ namespace App1.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewEmailPage : ContentPage
     {
-        public NewEmailPage()
+        public NewEmailPage(ObservableCollection<Email> emails)
         {
             InitializeComponent();
-            BindingContext = new NewEmailViewModel();
+            BindingContext = new NewEmailViewModel(emails);
         }
     }
 }

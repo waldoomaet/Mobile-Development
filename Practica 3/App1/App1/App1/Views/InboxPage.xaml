@@ -124,16 +124,5 @@
                 <TapGestureRecognizer Command="{Binding AddEmailCommand}" />
             </Image.GestureRecognizers>
         </Image>
-        <!--<ImageButton
-            Grid.Row="2"
-            Grid.Column="0"
-            Grid.ColumnSpan="1"
-            BackgroundColor="#c94f3f"
-            Command="{Binding AddEmailCommand}"
-            CornerRadius="40"
-            HeightRequest="80"
-            HorizontalOptions="EndAndExpand"
-            Source="edit2.png"
-            WidthRequest="80" />-->
     </Grid>
 </ContentPage>

@@ -82,25 +82,6 @@ namespace App1.ViewModels
         }
 
         private async void ShowEmail(Models.Email email) => await App.Current.MainPage.Navigation.PushAsync(new EmailDetailPage(email));
-        private async void AddEmail()
-        {
-            var newEmailPage = new NewEmailPage();
-            var bindingContext = (NewEmailViewModel)newEmailPage.BindingContext;
-            bindingContext.SetEmail += (object source, EventArgs e) => 
-            { 
-                Emails.Add((Models.Email)source);
-                Preferences.Set("json_data", JsonConvert.SerializeObject(Emails));
-                if (Emails.Count > 0)
-                {
-                    HasEmails = true;
-                }
-                else
-                {
-                    HasEmails = false;
-                }
-                HasNoEmails = !HasEmails;
-            };
-            await App.Current.MainPage.Navigation.PushAsync(newEmailPage);
-        }
+        private async void AddEmail() => await App.Current.MainPage.Navigation.PushAsync(new NewEmailPage(Emails));
     }
 }
