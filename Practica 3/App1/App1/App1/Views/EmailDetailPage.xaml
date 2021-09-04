@@ -28,7 +28,7 @@
             RowDefinitions="Auto,Auto,35,35,25,Auto,25,Auto">
             <Label
                 Grid.Row="0"
-                Grid.Column="0"
+                Grid.ColumnSpan="3"
                 FontAttributes="Bold"
                 FontSize="Large"
                 HorizontalOptions="Start"
@@ -79,40 +79,9 @@
                 Grid.Row="2"
                 Grid.RowSpan="2"
                 Grid.Column="3"
-                Margin="-10,0,0,0"
                 BackgroundColor="#D3D3D3"
                 HorizontalOptions="EndAndExpand"
                 Source="dots.png" />
-            <!--<Grid
-                Grid.Row="2"
-                Grid.ColumnSpan="2"
-                BackgroundColor="#D3D3D3"
-                ColumnDefinitions="Auto,*,Auto,Auto"
-                RowDefinitions="*,*">
-                <Image
-                    Grid.RowSpan="2"
-                    Grid.Column="0"
-                    HeightRequest="100"
-                    Source="profile.png" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    FontAttributes="Bold"
-                    Text="{Binding Email.From}" />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Text="{Binding Email.Date}" />
-                <Image
-                    Grid.RowSpan="2"
-                    Grid.Column="2"
-                    Source="reply.png" />
-                <Image
-                    Grid.RowSpan="2"
-                    Grid.Column="3"
-                    Source="dots.png" />
-            </Grid>-->
-            <!--This was used as a breakline (<br>)-->
             <Label
                 Grid.Row="3"
                 Grid.ColumnSpan="2"
@@ -129,7 +98,7 @@
                 TextColor="White" />
             <Image
                 Grid.Row="6"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="4"
                 HorizontalOptions="StartAndExpand"
                 Source="{Binding Email.AttachedPhotoPath}" />
 
