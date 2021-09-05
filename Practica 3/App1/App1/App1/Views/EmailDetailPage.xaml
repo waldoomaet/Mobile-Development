@@ -25,7 +25,7 @@
         <Grid
             Margin="20"
             ColumnDefinitions="*,*,*,*"
-            RowDefinitions="Auto,Auto,35,35,25,Auto,25,Auto">
+            RowDefinitions="Auto,Auto,35,35,25,Auto,Auto">
             <Label
                 Grid.Row="0"
                 Grid.ColumnSpan="3"
@@ -56,7 +56,7 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                Margin="-10,0,-10,-10"
+                Margin="-10,0,-100,-10"
                 BackgroundColor="#D3D3D3"
                 FontAttributes="Bold"
                 Text="{Binding Email.From}" />
@@ -64,14 +64,14 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                Margin="-10,-10,-10,0"
+                Margin="-10,-10,-100,0"
                 BackgroundColor="#D3D3D3"
                 Text="{Binding Email.Date}" />
             <Image
                 Grid.Row="2"
                 Grid.RowSpan="2"
                 Grid.Column="2"
-                Margin="0,0,-50,0"
+                Margin="0,0,-70,0"
                 BackgroundColor="#D3D3D3"
                 HorizontalOptions="EndAndExpand"
                 Source="reply.png" />

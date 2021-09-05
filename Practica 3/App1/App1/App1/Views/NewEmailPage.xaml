@@ -44,7 +44,14 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Text="{Binding Email.Title}" />
-            <Label
+            <Image
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Start"
+                Margin="20,0,0,0"
+                IsVisible="{Binding PhotoAttached}"
+                Source="{Binding PhotoPath}" />
+            <!--<Label
                 Grid.Row="2"
                 Grid.Column="0"
                 FontSize="Medium"
@@ -55,7 +62,7 @@
                 Grid.Column="1"
                 FontSize="Medium"
                 IsVisible="{Binding PhotoAttached}"
-                Text="{Binding PhotoPath}" />
+                Text="{Binding PhotoPath}" />-->
             <Editor
                 Grid.Row="3"
                 Grid.ColumnSpan="2"
