@@ -47,22 +47,10 @@
             <Image
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
+                Margin="10,0,0,0"
                 HorizontalOptions="Start"
-                Margin="20,0,0,0"
                 IsVisible="{Binding PhotoAttached}"
                 Source="{Binding PhotoPath}" />
-            <!--<Label
-                Grid.Row="2"
-                Grid.Column="0"
-                FontSize="Medium"
-                IsVisible="{Binding PhotoAttached}"
-                Text="Photo path:" />
-            <Label
-                Grid.Row="2"
-                Grid.Column="1"
-                FontSize="Medium"
-                IsVisible="{Binding PhotoAttached}"
-                Text="{Binding PhotoPath}" />-->
             <Editor
                 Grid.Row="3"
                 Grid.ColumnSpan="2"
