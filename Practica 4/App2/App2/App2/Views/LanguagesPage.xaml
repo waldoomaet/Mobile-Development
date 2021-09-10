@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App2.Views.LanguagesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:App2.Views">
+    <StackLayout BackgroundColor="#D3D3D3">
+        <Frame Padding="24" BackgroundColor="White">
+            <Label Style="{StaticResource HeaderLabelStyle}" Text="Discovery" />
+        </Frame>
+        <Grid
+            ColumnDefinitions="Auto,Auto"
+            ColumnSpacing="30"
+            HorizontalOptions="CenterAndExpand"
+            RowDefinitions="Auto,Auto,Auto"
+            RowSpacing="40"
+            VerticalOptions="CenterAndExpand">
+            <views:LanguageView
+                Grid.Row="0"
+                Grid.Column="0"
+                BindingContext="{Binding CSharp}" />
+            <views:LanguageView
+                Grid.Row="0"
+                Grid.Column="1"
+                BindingContext="{Binding CPlusPlus}" />
+            <views:LanguageView
+                Grid.Row="1"
+                Grid.Column="0"
+                BindingContext="{Binding Python}" />
+            <views:LanguageView
+                Grid.Row="1"
+                Grid.Column="1"
+                BindingContext="{Binding Java}" />
+            <views:LanguageView
+                Grid.Row="2"
+                Grid.Column="0"
+                BindingContext="{Binding Asm}" />
+            <views:LanguageView
+                Grid.Row="2"
+                Grid.Column="1"
+                BindingContext="{Binding Js}" />
+        </Grid>
+        <Grid
+            BackgroundColor="White"
+            ColumnDefinitions="*,*,*,*,*"
+            VerticalOptions="EndAndExpand">
+            <views:TabBarOptionView Grid.Column="0" BindingContext="{Binding Option1}" />
+            <views:TabBarOptionView Grid.Column="1" BindingContext="{Binding Option2}" />
+            <views:TabBarOptionView Grid.Column="2" BindingContext="{Binding Option3}" />
+            <views:TabBarOptionView Grid.Column="3" BindingContext="{Binding Option4}" />
+            <views:TabBarOptionView Grid.Column="4" BindingContext="{Binding Option5}" />
+        </Grid>
+    </StackLayout>
+</ContentPage>
