@@ -11,7 +11,7 @@ namespace App1.Models
         public string Status { get; set; }
 
         [JsonPropertyName("data")]
-        public User User { get; set; }
+        public object Data { get; set; }
         
         [JsonPropertyName("errorMessage")]
         public string ErrorMessage { get; set; }

@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
                     {
                         Dictionary<string, string> responseData = new Dictionary<string, string>()
                         {
-                            {prop.Name, $"{prop.Name} is required!"}
+                            {prop.Name, $"{prop.Name} is required! {prop.GetValue(newUser)} was passed."}
                         };
                         return BadRequest(new FailResponse(responseData));
                     }
