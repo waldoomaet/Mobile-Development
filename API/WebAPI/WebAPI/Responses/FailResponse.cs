@@ -10,6 +10,7 @@ namespace WebAPI.Models
         public string Status { get; set; }
         public object Data { get; set; }
 
+        public string ErrorMessage { get; set; } = "";
         public FailResponse(object data) => this.SetResponse(data);
 
         private void SetResponse(object data, string errorMessage = "")

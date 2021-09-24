@@ -8,6 +8,8 @@ namespace WebAPI.Models
     public class ErrorResponse : IResponse
     {
         public string Status { get; set; }
+
+        public object Data { get; set; } = null;
         public string ErrorMessage { get; set; }
 
         public ErrorResponse(string message) => this.SetResponse(errorMessage:message);

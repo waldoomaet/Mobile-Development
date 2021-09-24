@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <StackLayout>
+        <Entry BindingContext="{Binding User.FullName}" Placeholder="Full Name" />
+        <Entry BindingContext="{Binding User.Username}" Placeholder="Username" />
+        <Entry BindingContext="{Binding User.IdentificationDocument}" Placeholder="Identification Document" />
+        <Entry BindingContext="{Binding User.Email}" Placeholder="Email" />
+        <Entry
+            BindingContext="{Binding User.CreditCardNumber}"
+            Keyboard="Numeric"
+            Placeholder="Credit Card Number" />
+        <Entry
+            BindingContext="{Binding User.CVV}"
+            Keyboard="Numeric"
+            Placeholder="CVV" />
+        <DatePicker BindingContext="{Binding User.CreditCardExpirationDate}" />
+        <Entry
+            BindingContext="{Binding User.Password}"
+            IsPassword="True"
+            Placeholder="Password" />
+        <Entry
+            BindingContext="{Binding User.ReEnteredPassword}"
+            IsPassword="True"
+            Placeholder="Re-enter password" />
+        <Button Text="Sign-Up!" Command="{Binding SignUpCommand}"/>
+    </StackLayout>
+
+</ContentPage>

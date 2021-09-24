@@ -15,5 +15,6 @@ namespace WebAPI.Models
         public int? CVV { get; set; }
         public DateTime? CreditCardExpirationDate { get; set; }
         public string Password { get; set; }
+        public string ReEnteredPassword { get; set; }
     }
 }
