@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:controls="clr-namespace:App1.Controls"
+    xmlns:effects="clr-namespace:App1.Effects">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Button Text="Button Beneath BoxView" />
+                <BoxView
+                    HeightRequest="200"
+                    Opacity="0.2"
+                    Color="Red" />
+            </Grid>
+            <Grid Margin="0,20,0,20">
+                <Button android:VisualElement.Elevation="10" Text="Button Above BoxView - Click Me" />
+                <BoxView
+                    HeightRequest="200"
+                    Opacity="0.2"
+                    Color="Red" />
+            </Grid>
+            <Label Text="{Binding Orientation}" />
+            <controls:CustomEntry Placeholder="Custom render entry" />
+            <Entry Placeholder="Effect entry">
+                <Entry.Effects>
+                    <effects:FocusEffect />
+                </Entry.Effects>
+            </Entry>
+            <Entry Placeholder="Normal entry" />
+            <ListView android:ListView.IsFastScrollEnabled="true" ItemsSource="{Binding SomeList}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
