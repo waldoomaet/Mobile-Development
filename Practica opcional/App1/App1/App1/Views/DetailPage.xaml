@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.DetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding MusicViewItem.Title}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="AliceBlue">
+                <Image Source="{Binding MusicViewItem.ImagePath}" />
+                <Label
+                    Margin="20,10,0,10"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="{Binding MusicViewItem.Duration}" />
+                <Label Text="{Binding Lorem}" Margin="20,0,20,0"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

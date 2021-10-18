@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="App1.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    x:Name="tabbedView"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    NavigationPage.HasNavigationBar="False">
+    <TabbedPage.Children>
+        <ContentPage Title="Home1" IconImageSource="home">
+            <ScrollView>
+                <Grid
+                    ColumnDefinitions="*,*,*,*"
+                    ColumnSpacing="5"
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,160">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="15,20,0,0"
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                        Text="Quick Help" />
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Margin="0,20,-20,10"
+                        HeightRequest="30"
+                        Source="search" />
+
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="10,0,0,0"
+                        CornerRadius="10"
+                        HeightRequest="35">
+                        <Image Source="air" />
+                    </Frame>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Breathe" />
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        CornerRadius="10"
+                        HeightRequest="35">
+                        <Image Source="sleep" />
+                    </Frame>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Sleep" />
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        CornerRadius="10"
+                        HeightRequest="35">
+                        <Image Source="emoticon" />
+                    </Frame>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Anxiety" />
+
+                    <Frame
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Margin="0,0,10,0"
+                        CornerRadius="10"
+                        HeightRequest="35">
+                        <Image Source="emoticon" />
+                    </Frame>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Stress" />
+
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        Margin="15,20,0,0"
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                        Text="Daily Meditations" />
+                    <Frame
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        Margin="15,0,15,0"
+                        Padding="-10,-10,-10,-10"
+                        CornerRadius="10">
+                        <Image Source="relax2" />
+                    </Frame>
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="25,0,0,50"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="Rest and Relax"
+                        TextColor="White"
+                        VerticalOptions="End" />
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        Margin="25,0,0,20"
+                        Text="30 mins"
+                        TextColor="White"
+                        VerticalOptions="End" />
+
+
+                    <Label
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="15,20,0,0"
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                        Text="New Music" />
+                    <Label
+                        Grid.Row="6"
+                        Grid.Column="3"
+                        Margin="15,20,20,0"
+                        FontAttributes="Bold"
+                        FontSize="Small"
+                        HorizontalOptions="End"
+                        Text="View all"
+                        VerticalOptions="Center" />
+
+                    <CollectionView
+                        Grid.Row="7"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        ItemsSource="{Binding MusicItems}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    Padding="0,0,0,0"
+                                    BackgroundColor="Beige"
+                                    CornerRadius="10">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference tabbedView}, Path=BindingContext.ItemSelectCommand}" CommandParameter="{Binding}" />
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Image HeightRequest="100" Source="{Binding ImagePath}" />
+                                        <Label Margin="10,0,0,0" Text="{Binding Title}" />
+                                        <Label Margin="10,0,0,0" Text="{Binding Duration}" />
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView>
+        </ContentPage>
+        <ContentPage Title="Home2" IconImageSource="home" />
+        <ContentPage Title="Home3" IconImageSource="home" />
+        <ContentPage Title="Home4" IconImageSource="home" />
+        <ContentPage Title="Home5" IconImageSource="home" />
+    </TabbedPage.Children>
+</TabbedPage>

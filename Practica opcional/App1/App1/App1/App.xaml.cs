@@ -1,28 +1,29 @@
-﻿using System;
+﻿using App1.ViewModels;
+using App1.Views;
+using Prism;
+using Prism.Ioc;
+using Prism.Unity;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace App1
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        public App(IPlatformInitializer platformInitializer) : base(platformInitializer) { }
+
+        protected override void OnInitialized()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            NavigationService.NavigateAsync($"{Constants.Navigation.Nav}/{Constants.Navigation.Main}");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
+            containerRegistry.RegisterForNavigation<MainPage, MainViewModel>(Constants.Navigation.Main);
+            containerRegistry.RegisterForNavigation<NavigationPage>(Constants.Navigation.Nav);
+            containerRegistry.RegisterForNavigation<DetailPage, DetailViewModel>(Constants.Navigation.Detail);
         }
     }
 }
