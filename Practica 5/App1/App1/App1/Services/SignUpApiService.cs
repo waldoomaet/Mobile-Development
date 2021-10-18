@@ -14,7 +14,7 @@ namespace App1.Services
 
         public SignUpApiService()
         {
-            _client.BaseAddress = new Uri("http://192.168.68.139:45455/api/");
+            _client.BaseAddress = new Uri("http://192.168.68.138:45457/api/");
         }
         public async Task<SignUpApiResponse> Create(User newUser)
         {
